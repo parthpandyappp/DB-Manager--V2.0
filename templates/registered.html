@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Collegues | Registered</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{url_for('static', filename='images/favicon.ico')}}">
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script type = "text/javascript"  src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script type = "text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script type = "text/javascript"  src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Datatable -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+    <script type = "text/javascript"  src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script type = "text/javascript"  src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+    <script type = "text/javascript"  src="https://cdn.datatables.net/plug-ins/1.10.15/dataRender/datetime.js"></script>
+  </head>
+  <!--body style="background:white url(//www.html.am/images/backgrounds/background-image-2.gif);"-->
+  <body  style="background:white url(//www.html.am/images/backgrounds/background-image-2.gif);">
+        
+        <marquee style="font-family:monospace; font-size: 20px;"><br>You can view the below data into a choice of your database-viewer (Libre-office, excel-sheets, Google spreadsheets etc.)</marquee>
+        
+        <p style="font-family:'Courier New', Courier, monospace; font-size: 35px; text-align: center;">Welcome to the portal,<br> Below is the list of all your registered colleagues!</p>
+
+        <table id="data" class="display table responsive" style="width : 100%">
+            <thead>
+                <tr>
+                    <th> Name</th>
+                    <th>Email</th>
+                    <th>Course</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in users %}
+                    <tr>
+                        
+                        <td>{{i.name}}</td>
+                        <td>{{i.email}}</td>
+                        <td>{{i.course}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <form action = "/logout" method = "POST">
+            <button input style="height:40px; width:130px; border-radius: 12px; margin: 0; position: absolute;left: 50%; -ms-transform: translate(-50%, -50%); transform: translate(-50%, -50%);" type = "submit">Log Out</button>
+        </form><br><br><br>
+  </body>
+  <script type="text/javascript">
+        $('#data').DataTable();
+  </script>
+</html>
