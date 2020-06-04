@@ -21,7 +21,7 @@ def index():
 def hello_world():
     return render_template("auth.html")
 
-database={'nachi':'123','james':'aac','karthik':'asdsf','khushal': '1234' }
+database={'nachi':'123','james':'aac','karthik':'asdsf','khushal': '1234', 'parth':'wonderwomen99' }
 
 @app.route('/form_login',methods=['POST','GET'])
 def login():
